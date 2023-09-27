@@ -7,19 +7,20 @@ t = int(input())
 
 for _ in range(t):
     n, a, q = map(int, input().split())
-    a = int(a)
+    suscriptores = a
     q = int(q)
     for _ in range(q):
         x = input()
         if x == "+":
-            a += 1
+            suscriptores += 1
         elif x == "-":
-            a -= 1
+            suscriptores = max(0, suscriptores-1)
         else:
             print("error")
-    if a == n:
+    if suscriptores == n:
         print("Yes")
-    elif a < n:
-        print("No")
     else:
-        print("Maybe")
+        if suscriptores > a or suscriptores > 0:
+            print("Maybe")
+        else:
+            print("No")
